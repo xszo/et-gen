@@ -44,14 +44,15 @@ def base(out, loc: dict) -> None:
     ]
 
     if "dns" in __src["misc"]:
-        line = "dns-server = system"
-        for item in __src["misc"]["dns"]:
+        line = "dns-server = " + __src["misc"]["dns"][0]
+        for item in __src["misc"]["dns"][1:]:
             line += ", " + item
         res.append(line)
     if "doh" in __src["misc"]:
-        res.append(
-            "encrypted-dns-server = " + __src["misc"]["doh"],
-        )
+        line = "encrypted-dns-server = " + __src["misc"]["doh"][0]
+        for item in __src["misc"]["doh"][1:]:
+            line += ", " + item
+        res.append(line)
 
     res.append("\n[Proxy Group]")
 
@@ -81,11 +82,7 @@ def base(out, loc: dict) -> None:
 
     res.extend(
         [
-            "RULE-SET, "
-            + item[2]
-            + ", "
-            + __var["map-node"][item[3]]
-            + ", no-resolve, extended-matching"
+            "RULE-SET, " + item[2] + ", " + __var["map-node"][item[3]] + ", no-resolve"
             for item in __src["filter"]["dn"]["surge"]
             if item[0] in set([1, 2])
         ]
