@@ -4,17 +4,18 @@ id: ""
 var: {}
 # misc options
 misc:
-  # lag test http link
+  # lag test
   test: http://1.1.1.1/
   t-dns: one.one.one.one@1.1.1.1
-  # dns over udp on port 53
-  dns:
-    - "1.1.1.1"
-    - "1.0.0.1"
-    - "[2606:4700:4700::1111]"
-    - "[2606:4700:4700::1001]"
-  # dns over https
-  doh: https://cloudflare-dns.com/dns-query
+  # # dns over udp on port 53
+  # dns:
+  #   - "1.1.1.1"
+  #   - "1.0.0.1"
+  #   - "[2606:4700:4700::1111]"
+  #   - "[2606:4700:4700::1001]"
+  # # dns over https
+  # doh:
+  #   - https://cloudflare-dns.com/dns-query
 # routing info
 route:
   - id: local
@@ -112,10 +113,10 @@ node:
   - { name: SG, type: test, list: =sg }
   - { name: TW, type: test, list: =tw }
   - { name: US, type: test, list: =us }
-  - { name: Node0, type: static, list: =xx }
-  - { name: Node1, type: static, list: =xx }
-  - { name: Node2, type: static, list: =xx }
-  - { name: Node3, type: static, list: =xx }
+  # - { name: Node0, type: static, list: =xx }
+  # - { name: Node1, type: static, list: =xx }
+  # - { name: Node2, type: static, list: =xx }
+  # - { name: Node3, type: static, list: =xx }
   - { name: NodeX, type: test, list: "^(?!.*\\[.\\])" }
   - { name: NodeA, type: test, list: "\\[A\\]" }
   - { name: NodeB, type: test, list: "\\[B\\]" }

@@ -7,4 +7,4 @@ list:
 proxy:
   - ""
   # flag path
-  # - l https://xszo.github.io/etc/net/proxy.yml
+  # - l https://cdn.jsdelivr.net/gh/xszo/etc/network/proxy.txt

@@ -89,7 +89,7 @@ def profile(out, loc: dict) -> None:
         for item in __src["misc"]["dns"]:
             res.append("server = " + item)
     if "doh" in __src["misc"]:
-        res.append("doh-server = " + __src["misc"]["doh"])
+        res.append("doh-server = " + __src["misc"]["doh"][0])
 
     res.append("\n[mitm]")
 

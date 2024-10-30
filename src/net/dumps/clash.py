@@ -63,11 +63,12 @@ MISC = {
 
 
 def misc(src: dict, res: dict) -> None:
-    res["dns"]["default-nameserver"] = [item + ":53" for item in src["misc"]["dns"]]
-    if "doh" in src["misc"]:
-        res["dns"]["nameserver"] = [src["misc"]["doh"]]
-    else:
-        res["dns"]["nameserver"] = deepcopy(res["dns"]["default-nameserver"])
+    if "dns" in src["misc"]:
+        res["dns"]["default-nameserver"] = deepcopy(src["misc"]["dns"])
+        if "doh" in src["misc"]:
+            res["dns"]["nameserver"] = src["misc"]["doh"]
+        else:
+            res["dns"]["nameserver"] = deepcopy(src["misc"]["dns"])
 
 
 def node(src: dict, res: dict) -> None:

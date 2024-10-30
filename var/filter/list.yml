@@ -7,7 +7,7 @@ list:
   - tw r-tw vlctw
   - us r-us vlcus
   - >-
-    system
+    system system
     -cn -jp -tw -us
     vlcsystem
   - >-
