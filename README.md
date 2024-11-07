@@ -1,4 +1,4 @@
-# xszo/xszo-gen
+# xszo/et-gen
 
 Release on
 [![jsdelivr](https://data.jsdelivr.com/v1/package/gh/xszo/etc/badge)](https://www.jsdelivr.com/package/gh/xszo/etc)
@@ -9,15 +9,15 @@ Release on
 `git switch main;  ./run -i;`
 
 Code at `main` in `run` `src/` `var/` on  
-  <https://github.com/xszo/xszo-gen/tree/main>
+  <https://github.com/xszo/et-gen/tree/main>
 
 Documents at `main` in `doc/` on  
-  <https://github.com/xszo/xszo-gen/wiki>
+  <https://github.com/xszo/et-gen/wiki>
 
 ## External
 
 - doc/    _GNU GPL 3.0_ & _CC BY-SA 4.0_  
-  <https://github.com/xszo/xszo-gen/wiki>
+  <https://github.com/xszo/et-gen/wiki>
 - #/(surge|clash)/filter+\*.txt  
   <https://github.com/v2fly/domain-list-community>
 - #/(surge|clash)/filter+block.txt  
