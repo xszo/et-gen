@@ -58,7 +58,7 @@ vlc:
 # Parse Online list
 # {reg}
 get:
-  - uri: https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
+  - uri: https://cdn.jsdelivr.net/gh/gfwlist/gfwlist@master/gfwlist.txt
     # use preprocessor
     pre: [b64]
     # use regular expression to convert into sublist

@@ -1,5 +1,5 @@
 from .. import ren as __ren
-from ..ren import ICO, INT, URI
+from ..ren import INT, URI
 
 PATH_TMP = __ren.PATH_TMP_NET
 PATH_VAR = __ren.PATH_VAR_NET
@@ -15,4 +15,6 @@ URI_SURGE = __ren.URI + "surge/"
 URI_CLASH = __ren.URI + "clash/"
 
 # dump.py
-EXT_QUANTUMULT_PARSER = "https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js"
+EXT_QUANTUMULT_PARSER = (
+    "https://cdn.jsdelivr.net/gh/KOP-XIAO/QuantumultX@master/Scripts/resource-parser.js"
+)

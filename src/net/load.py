@@ -22,7 +22,6 @@ def base(araw: dict) -> None:
     __src["misc"].update(
         {
             "interval": ren.INT,
-            "icon": ren.ICO,
         }
     )
     # load sections

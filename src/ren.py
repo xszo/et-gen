@@ -19,5 +19,4 @@ with open("var/ren.yml", "tr", encoding="utf-8") as __file:
     __var = yaml.safe_load(__file)
 
 URI = __var["uri"]
-ICO = __var["ico"]
 INT = __var["int"]

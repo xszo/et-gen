@@ -78,7 +78,6 @@ def profile(out, loc: dict) -> None:
     global res
     res = [
         "[general]",
-        "profile_img_url = " + __src["misc"]["icon"],
         "resource_parser_url = " + loc["parse"],
         "network_check_url = " + __src["misc"]["test"],
         "server_check_url = " + __src["misc"]["test"],
