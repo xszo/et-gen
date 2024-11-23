@@ -1,0 +1,8 @@
+domain:
+  - netflix.com
+  - netflix.net
+
+ipasn:
+  - 2906 # netflix
+  - 22604 # disney
+  - 23344 # disney

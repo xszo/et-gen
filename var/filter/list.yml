@@ -11,7 +11,7 @@ list:
     -cn -jp -tw -us
     vlcsystem
   - >-
-    stream
+    stream stream
     -cn -jp -tw -us
     vlcstream
   - >-
@@ -41,12 +41,12 @@ vlc:
     - bahamut
   us:
     - ehentai
-    - hbo
   system:
     - apple
   stream:
     - dazn
     - disney
+    - hbo
     - netflix
     - primevideo
   world:
