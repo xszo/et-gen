@@ -4,7 +4,7 @@ from .dumps import clash_conv, conv, quantumult, shadowrocket, surge
 
 # Var
 __src = {}
-__var = {"reg-parser": set()}
+__var = {"once": set()}
 
 
 # Init
@@ -48,8 +48,8 @@ def __quantumult(alia: str) -> None:
             },
         )
 
-    if not "qp" in __var["reg-parser"]:
-        __var["reg-parser"].add("qp")
+    if not "qp" in __var["once"]:
+        __var["once"].add("qp")
         net.download(
             ren.EXT_QUANTUMULT_PARSER,
             ren.PATH_OUT / "quantumult-parser.js",
@@ -84,6 +84,15 @@ def __surge(alia: str) -> None:
     ) as out:
         surge.base(out, {"up": ren.URI_SURGE + "base" + alia + ".conf"})
 
+    if not "sp" in __var["once"]:
+        __var["once"].add("sp")
+        with open(
+            ren.PATH_OUT_SURGE / "proxy.conf",
+            "tw",
+            encoding="utf-8",
+        ) as out:
+            surge.proxy(out)
+
     with open(
         ren.PATH_OUT_SURGE / ("profile" + alia + ".conf"),
         "tw",
@@ -91,8 +100,8 @@ def __surge(alia: str) -> None:
     ) as out:
         surge.profile(out, {"base": "base" + alia + ".conf"})
 
-    if not "sc" in __var["reg-parser"]:
-        __var["reg-parser"].add("sc")
+    if not "sc" in __var["once"]:
+        __var["once"].add("sc")
         with open(
             ren.PATH_OUT / "conv.conf",
             "tw",

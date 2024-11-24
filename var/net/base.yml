@@ -13,8 +13,7 @@ misc:
   #   - "1.0.0.1"
   # # dns over https
   # doh:
-  #   - https://1.1.1.1/dns-query
-  #   - https://1.0.0.1/dns-query
+  #   - https://cloudflare-dns.com/dns-query
 # routing info
 route:
   - id: local
@@ -101,17 +100,7 @@ route:
 node:
   # type, static manual set dest, test set based on lag test
   # list, include proxy, = ref pattern.region
-  - { name: Node, type: test, list: =xx }
-  - { name: CN, type: test, list: =cn }
-  - { name: DE, type: test, list: =de }
-  - { name: FR, type: test, list: =fr }
-  - { name: GB, type: test, list: =gb }
-  - { name: HK, type: test, list: =hk }
-  - { name: JP, type: test, list: =jp }
-  - { name: KR, type: test, list: =kr }
-  - { name: SG, type: test, list: =sg }
-  - { name: TW, type: test, list: =tw }
-  - { name: US, type: test, list: =us }
+  # - { name: Node, type: test, list: =xx }
   # - { name: Node0, type: static, list: =xx }
   # - { name: Node1, type: static, list: =xx }
   # - { name: Node2, type: static, list: =xx }
@@ -120,3 +109,14 @@ node:
   - { name: NodeA, type: test, list: "\\[A\\]" }
   - { name: NodeB, type: test, list: "\\[B\\]" }
   - { name: NodeC, type: test, list: "\\[C\\]" }
+  - { name: CN, type: test, list: =cn }
+  - { name: DE, type: test, list: =de }
+  - { name: FR, type: test, list: =fr }
+  - { name: GB, type: test, list: =gb }
+  - { name: HK, type: test, list: =hk }
+  - { name: JP, type: test, list: =jp }
+  - { name: KR, type: test, list: =kr }
+  - { name: NL, type: test, list: =nl }
+  - { name: SG, type: test, list: =sg }
+  - { name: TW, type: test, list: =tw }
+  - { name: US, type: test, list: =us }

@@ -16,11 +16,14 @@ def profile(out, loc: dict) -> None:
         [
             "[General]\n",
             "#!include " + loc["base"] + "\n",
-            "\n[Proxy]\n",
+            "\n",
+            "[Proxy]\n",
             "#!include proxy.conf\n",
-            "\n[Proxy Group]\n",
-            "#!include " + loc["base"] + "\n",
-            "\n[Rule]\n",
+            "\n",
+            "[Proxy Group]\n",
+            "#!include " + loc["base"] + ", proxy.conf\n",
+            "\n",
+            "[Rule]\n",
             "#!include " + loc["base"] + "\n",
         ]
     )
@@ -72,7 +75,9 @@ def base(out, loc: dict) -> None:
                     line += ", " + val
         if "regx" in item:
             line += (
-                ', include-all-proxies=true, policy-regex-filter="' + item["regx"] + '"'
+                ', include-all-proxies=true, include-other-group=Proxy, policy-regex-filter="'
+                + item["regx"]
+                + '"'
             )
         return line
 
@@ -95,3 +100,20 @@ def base(out, loc: dict) -> None:
     res.append("FINAL, " + __var["map-node"][__src["filter"]["main"]] + ", dns-failed")
 
     out.writelines([x + "\n" for x in res])
+
+
+def proxy(out) -> None:
+    out.writelines(
+        [
+            "[General]\n",
+            "\n",
+            "[Proxy]\n",
+            "DIRECT = direct\n",
+            "\n",
+            "[Proxy Group]\n",
+            'Proxy = select, include-other-group=""\n',
+            "\n",
+            "[Rule]\n",
+            "FINAL, DIRECT\n",
+        ]
+    )
