@@ -27,9 +27,9 @@ def __dn_mini(raw: set | list) -> set:
 def __dn_rm(raw: set | list, rm: set | list):
     for i in ren.LEVEL_DN:
         # remove parent
-        raw.difference_update(
-            set("." + ".".join(x.split(".")[-i:]) for x in rm if x.count(".") >= i)
-        )
+        # raw.difference_update(
+        #     set("." + ".".join(x.split(".")[-i:]) for x in rm if x.count(".") >= i)
+        # )
         # remove children
         suffix = set(x for x in rm if x[0] == "." and x.count(".") == i)
         raw = set(x for x in raw if not ("." + ".".join(x.split(".")[-i:])) in suffix)

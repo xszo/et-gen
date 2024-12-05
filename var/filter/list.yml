@@ -2,23 +2,28 @@
 list:
   # id, list below
   - local local
-  - cn r-cn vlccn
-  - jp r-jp vlcjp
-  - tw r-tw vlctw
-  - us r-us vlcus
   - >-
-    system system
-    -cn -jp -tw -us
-    vlcsystem
+    system
+    system vlcsystem
   - >-
-    stream stream
-    -cn -jp -tw -us
-    vlcstream
+    stream
+    stream vlcstream
+  - >-
+    cn
+    r-cn vlccn
+  - >-
+    jp
+    r-jp vlcjp
+  - >-
+    tw
+    r-tw vlctw
+  - >-
+    us
+    r-us vlcus
   - >-
     world
     -system -stream -cn -jp -tw -us
     vlcworld gfw
-
   - >-
     block
     vlcblock adguard

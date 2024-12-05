@@ -5,20 +5,22 @@ var: {}
 # misc options
 misc:
   # lag test
-  test: http://cp.cloudflare.com/
+  test: http://cloudflare.com/
   t-dns: cloudflare.com@1.1.1.1
-  # # dns over udp
-  # dns:
-  #   - "1.1.1.1"
-  #   - "1.0.0.1"
-  # # dns over https
-  # doh:
-  #   - https://cloudflare-dns.com/dns-query
+  # dns over udp
+  dns:
+    # - "1.1.1.1"
+    # - "1.0.0.1"
+    - "223.5.5.5"
+    - "223.6.6.6"
+    - "[2400:3200::1]"
+    - "[2400:3200:baba::1]"
+  # dns over https
+  doh:
+    # - https://cloudflare-dns.com/dns-query
+    - https://dns.alidns.com/dns-query
 # routing info
 route:
-  - id: local
-    node: { id: direct }
-    filter: [use: local]
   - id: system
     node:
       type: static
