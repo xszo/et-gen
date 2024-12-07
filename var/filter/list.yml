@@ -2,24 +2,12 @@
 list:
   # id, list below
   - local local
-  - >-
-    system
-    system vlcsystem
-  - >-
-    stream
-    stream vlcstream
-  - >-
-    cn
-    r-cn vlccn
-  - >-
-    jp
-    r-jp vlcjp
-  - >-
-    tw
-    r-tw vlctw
-  - >-
-    us
-    r-us vlcus
+  - system system vlcsystem
+  - stream stream vlcstream
+  - cn r-cn vlccn
+  - jp r-jp vlcjp
+  - tw r-tw vlctw
+  - us r-us vlcus
   - >-
     world
     -system -stream -cn -jp -tw -us

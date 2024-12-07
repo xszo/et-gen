@@ -5,9 +5,6 @@ tar:
   - quantumult
   - shadowrocket
 route:
-  - id: local
-    node: { id: direct }
-    filter: [use: local]
   - id: ss
     node: { name: Node, type: test, list: =xx }
     filter: [use: system, use: stream]
