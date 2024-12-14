@@ -41,7 +41,7 @@ def base(out, loc: dict) -> None:
         #
         "[General]",
         "loglevel = warning",
-        "internet-test-url = " + __src["misc"]["test"],
+        # "internet-test-url = " + __src["misc"]["test"],
         "proxy-test-url = " + __src["misc"]["test"],
         "proxy-test-udp = " + __src["misc"]["t-dns"],
     ]

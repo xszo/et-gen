@@ -5,8 +5,8 @@ var: {}
 # misc options
 misc:
   # lag test
-  test: http://cloudflare.com/
-  t-dns: cloudflare.com@1.1.1.1
+  test: http://1.1.1.1/
+  t-dns: nic.com@1.1.1.1
   # dns over udp
   dns:
     # - "1.1.1.1"
@@ -17,32 +17,23 @@ misc:
     - "[2400:3200:baba::1]"
   # dns over https
   doh:
-    # - https://cloudflare-dns.com/dns-query
+    # - https://1.1.1.1/dns-query
+    # - https://1.0.0.1/dns-query
     - https://dns.alidns.com/dns-query
 # routing info
 route:
-  - id: system
+  - id: main
     node:
       type: static
-      name: System
-      list: [-main, -direct, =node]
+      name: Default
+      list: [-direct, -reject, =node]
     filter:
-      - use: system
+      - type: main
+      - use: world
     icon:
-      sort: 1
+      sort: 0
       emoji: 🏳️‍🌈
-      sf: arrow.left.and.right.system
-  - id: stream
-    node:
-      type: static
-      name: Stream
-      list: [-main, -direct, =node]
-    filter:
-      - use: stream
-    icon:
-      sort: 1
-      emoji: 🏳️‍🌈
-      sf: arrow.left.and.right.system
+      sf: arrow.left.arrow.right.system
   - id: cn
     node:
       type: static
@@ -87,18 +78,6 @@ route:
       sort: 3
       emoji: 🏳️‍🌈
       sf: arrow.forward.system
-  - id: main
-    node:
-      type: static
-      name: Default
-      list: [-direct, -reject, =node]
-    filter:
-      - type: main
-      - use: world
-    icon:
-      sort: 0
-      emoji: 🏳️‍🌈
-      sf: arrow.left.arrow.right.system
 node:
   # type, static manual set dest, test set based on lag test
   # list, include proxy, = ref pattern.region

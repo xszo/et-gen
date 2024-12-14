@@ -5,9 +5,9 @@ tar:
   - quantumult
   - shadowrocket
 route:
-  - id: ss
+  - id: ww
     node: { name: Node, type: test, list: =xx }
-    filter: [use: system, use: stream]
+    filter: [type: main, use: world]
   - id: cn
     node: { id: direct }
     filter: [use: cn]
@@ -20,7 +20,4 @@ route:
   - id: us
     node: { name: US, type: test, list: =us }
     filter: [use: us]
-  - id: ww
-    node: { id: ss }
-    filter: [type: main, use: world]
 node: []

@@ -79,7 +79,7 @@ def profile(out, loc: dict) -> None:
     res = [
         "[general]",
         "resource_parser_url = " + loc["parse"],
-        "network_check_url = " + __src["misc"]["test"],
+        # "network_check_url = " + __src["misc"]["test"],
         "server_check_url = " + __src["misc"]["test"],
     ]
 

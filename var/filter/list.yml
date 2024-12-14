@@ -2,16 +2,14 @@
 list:
   # id, list below
   - local local
-  - system system vlcsystem
-  - stream stream vlcstream
   - cn r-cn vlccn
   - jp r-jp vlcjp
   - tw r-tw vlctw
   - us r-us vlcus
   - >-
     world
-    -system -stream -cn -jp -tw -us
-    vlcworld gfw
+    -cn -jp -tw -us
+    world vlcworld gfw
   - >-
     block
     vlcblock adguard
@@ -34,15 +32,8 @@ vlc:
     - bahamut
   us:
     - ehentai
-  system:
-    - apple
-  stream:
-    - dazn
-    - disney
-    - hbo
-    - netflix
-    - primevideo
   world:
+    - apple
     - geolocation-!cn
   block:
     - category-ads-all
