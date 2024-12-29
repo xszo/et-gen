@@ -1,13 +1,12 @@
 domain:
   - apple
   - apple.com
-  - icloud.com
 
+ipcidr:
+  - 17.0.0.0/8 # apple
 ipasn:
   - 714 # apple
   - 2906 # netflix
   - 6185 # apple
   - 22604 # disney
   - 23344 # disney
-ipcidr:
-  - 17.0.0.0/8 # apple

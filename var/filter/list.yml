@@ -1,7 +1,6 @@
 # output list
 list:
   # id, list below
-  - local local
   - cn r-cn vlccn
   - jp r-jp vlcjp
   - tw r-tw vlctw
@@ -12,7 +11,7 @@ list:
     world vlcworld gfw
   - >-
     block
-    vlcblock adguard
+    adguard vlcblock
 
 # V2fly domain List Community
 # vlc{id}
@@ -23,10 +22,13 @@ vlc:
   jp:
     - 5ch
     - abema
+    - cygames
     - dlsite
     - dmm
+    - misskey
     - niconico
     - pixiv
+    - projectsekai
   tw:
     - 18comic
     - bahamut
