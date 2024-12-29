@@ -12,7 +12,7 @@ list:
     world vlcworld gfw
   - >-
     block
-    vlcblock adguard
+    adguard vlcblock
 
 # V2fly domain List Community
 # vlc{id}
