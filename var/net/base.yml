@@ -13,13 +13,11 @@ misc:
     # - "1.0.0.1"
     - "223.5.5.5"
     - "223.6.6.6"
-    - "[2400:3200::1]"
-    - "[2400:3200:baba::1]"
   # dns over https
   doh:
     # - https://1.1.1.1/dns-query
     # - https://1.0.0.1/dns-query
-    - https://dns.alidns.com/dns-query
+    - https://1.12.12.12/dns-query
 # routing info
 route:
   - id: main

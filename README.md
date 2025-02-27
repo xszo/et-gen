@@ -1,30 +1,30 @@
 # xszo/et-gen
 
-Release on
-[![jsdelivr](https://data.jsdelivr.com/v1/package/gh/xszo/etc/badge)](https://www.jsdelivr.com/package/gh/xszo/etc)
-.
-
 ## About
 
 `git switch main;  ./run -i;`
 
-Code at `main` in `run` `src/` `var/` on  
+Release in `out/` on
+[![jsdelivr](https://data.jsdelivr.com/v1/package/gh/xszo/etc/badge)](https://www.jsdelivr.com/package/gh/xszo/etc)
+.
+
+Code in `run` `src/` `var/` on  
   <https://github.com/xszo/et-gen/tree/main>
 
-Documents at `main` in `doc/` on  
+Documents in `doc/` on  
   <https://github.com/xszo/et-gen/wiki>
 
 ## External
 
 - doc/    _GNU GPL 3.0_ & _CC BY-SA 4.0_  
   <https://github.com/xszo/et-gen/wiki>
-- #/(surge|clash)/filter+\*.txt  
+- out/(surge|clash)/filter+\*.txt  
   <https://github.com/v2fly/domain-list-community>
-- #/(surge|clash)/filter+block.txt  
+- out/(surge|clash)/filter+block.txt  
   <https://github.com/AdguardTeam/AdGuardSDNSFilter>
-- #/(surge|clash)/filter+world.txt  
+- out/(surge|clash)/filter+world.txt  
   <https://github.com/gfwlist/gfwlist>
-- #/network/quantumult-parser.js  
+- out/network/quantumult-parser.js  
   <https://github.com/KOP-XIAO/QuantumultX>
 
 ## LICENSE

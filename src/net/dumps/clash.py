@@ -67,8 +67,13 @@ def misc(src: dict, res: dict) -> None:
         res["dns"]["default-nameserver"] = deepcopy(src["misc"]["dns"])
         if "doh" in src["misc"]:
             res["dns"]["nameserver"] = src["misc"]["doh"]
+            if "dot" in src["misc"]:
+                res["dns"]["nameserver"].extend(src["misc"]["dot"])
         else:
-            res["dns"]["nameserver"] = deepcopy(src["misc"]["dns"])
+            if "dot" in src["misc"]:
+                res["dns"]["nameserver"] = src["misc"]["dot"]
+            else:
+                res["dns"]["nameserver"] = deepcopy(src["misc"]["dns"])
 
 
 def node(src: dict, res: dict) -> None:

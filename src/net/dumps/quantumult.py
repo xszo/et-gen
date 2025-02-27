@@ -89,6 +89,8 @@ def profile(out, loc: dict) -> None:
             res.append("server = " + item)
     if "doh" in __src["misc"]:
         res.append("doh-server = " + __src["misc"]["doh"][0])
+    if "dot" in __src["misc"]:
+        res.append("dot-server = " + __src["misc"]["dot"][0])
 
     res.append("\n[mitm]")
 

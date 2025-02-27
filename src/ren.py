@@ -20,3 +20,5 @@ with open("var/ren.yml", "tr", encoding="utf-8") as __file:
 
 URI = __var["uri"]
 INT = __var["int"]
+
+EMPTY = "https://cdn.jsdelivr.net/gh/xszo/etc@etc/null"

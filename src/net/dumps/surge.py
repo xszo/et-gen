@@ -51,11 +51,15 @@ def base(out, loc: dict) -> None:
         for item in __src["misc"]["dns"][1:]:
             line += ", " + item
         res.append(line)
+    line = "encrypted-dns-server = "
     if "doh" in __src["misc"]:
-        line = "encrypted-dns-server = " + __src["misc"]["doh"][0]
-        for item in __src["misc"]["doh"][1:]:
-            line += ", " + item
-        res.append(line)
+        for item in __src["misc"]["doh"]:
+            line += item + ", "
+    if "dot" in __src["misc"]:
+        for item in __src["misc"]["dot"]:
+            line += item + ", "
+    if len(line) > 24:
+        res.append(line[:-2])
 
     res.append("\n[Proxy Group]")
 

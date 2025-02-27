@@ -1,4 +1,4 @@
-NULL = "https://cdn.jsdelivr.net/gh/xszo/etc@etc/null"
+from ...ren import EMPTY
 
 
 def proxy(out) -> None:
@@ -8,17 +8,16 @@ def proxy(out) -> None:
             for x in [
                 "[custom]",
                 "ruleset=DIRECT,[]FINAL",
-                "custom_proxy_group=Node`select`[]DIRECT`[]REJECT",
                 "add_emoji=false",
-                "clash_rule_base=" + NULL,
-                "loon_rule_base=" + NULL,
-                "mellow_rule_base=" + NULL,
-                "quan_rule_base=" + NULL,
-                "quanx_rule_base=" + NULL,
-                "singbox_rule_base=" + NULL,
-                "sssub_rule_base=" + NULL,
-                "surfboard_rule_base=" + NULL,
-                "surge_rule_base=" + NULL,
+                "clash_rule_base=" + EMPTY,
+                "loon_rule_base=" + EMPTY,
+                "mellow_rule_base=" + EMPTY,
+                "quan_rule_base=" + EMPTY,
+                "quanx_rule_base=" + EMPTY,
+                "singbox_rule_base=" + EMPTY,
+                "sssub_rule_base=" + EMPTY,
+                "surfboard_rule_base=" + EMPTY,
+                "surge_rule_base=" + EMPTY,
                 "rename=^(JMS-\\d+).(c\\d+s[123])\\..*@$1 $2 US",
                 "rename=^(JMS-\\d+).(c\\d+s4)\\..*@$1 $2 JP",
                 "rename=^(JMS-\\d+).(c\\d+s5)\\..*@$1 $2 NL",

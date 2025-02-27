@@ -10,9 +10,9 @@ PATH_OUT_SURGE = __ren.PATH_OUT / "surge"
 PATH_OUT_CLASH = __ren.PATH_OUT / "clash"
 
 # load.py
-URI_NET = __ren.URI + "network/"
-URI_SURGE = __ren.URI + "surge/"
-URI_CLASH = __ren.URI + "clash/"
+URI_NET = URI + "network/"
+URI_SURGE = URI + "surge/"
+URI_CLASH = URI + "clash/"
 
 # dump.py
 EXT_QUANTUMULT_PARSER = (
