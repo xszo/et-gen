@@ -9,15 +9,16 @@ misc:
   t-dns: nic.com@1.1.1.1
   # dns over udp
   dns:
-    # - "1.1.1.1"
-    # - "1.0.0.1"
-    - "223.5.5.5"
-    - "223.6.6.6"
+    # - 1.1.1.1
+    # - 1.0.0.1
+    - 223.5.5.5
+    - 223.6.6.6
   # dns over https
   doh:
     # - https://1.1.1.1/dns-query
     # - https://1.0.0.1/dns-query
-    - https://1.12.12.12/dns-query
+    - https://223.5.5.5/dns-query
+    - https://223.6.6.6/dns-query
 # routing info
 route:
   - id: main
@@ -84,10 +85,10 @@ node:
   # - { name: Node1, type: static, list: =xx }
   # - { name: Node2, type: static, list: =xx }
   # - { name: Node3, type: static, list: =xx }
-  - { name: NodeX, type: test, list: "^(?!.*\\[.\\])" }
   - { name: NodeA, type: test, list: "\\[A\\]" }
   - { name: NodeB, type: test, list: "\\[B\\]" }
   - { name: NodeC, type: test, list: "\\[C\\]" }
+  - { name: NodeD, type: test, list: "\\[D\\]" }
   - { name: CN, type: test, list: =cn }
   - { name: DE, type: test, list: =de }
   - { name: FR, type: test, list: =fr }
