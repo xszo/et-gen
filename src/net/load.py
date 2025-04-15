@@ -203,9 +203,9 @@ def __load_filter() -> None:
 
 
 def __load_proxy() -> None:
-    tmp_proxy = {"local": [], "link": []}
+    tmp_proxy = {"link": []}
     for item in res["proxy"]:
         item = item.split(" ")
         if "l" in item[0]:
-            tmp_proxy["link"].append(item[1])
+            tmp_proxy["link"].append({"tag": item[1], "uri": item[2]})
     res["proxy"] = tmp_proxy

@@ -4,7 +4,7 @@ import yaml
 
 res = {}
 __src = {}
-__var = {"map-node": {"direct": "DIRECT", "reject": "REJECT"}}
+__var = {"map-node": {"direct": "DIRECT", "reject": "REJECT"}, "proxy-link": []}
 
 MISC = {
     "allow-lan": True,
@@ -101,6 +101,7 @@ def node(src: dict, res: dict) -> None:
             ]
         if "regx" in item:
             line["include-all"] = True
+            line["use"] = __var["proxy-link"]
             line["filter"] = item["regx"]
         return line
 
@@ -146,6 +147,9 @@ def let(lsrc: dict) -> None:
     for item in __src["node"]:
         if "id" in item:
             __var["map-node"][item["id"]] = item["name"]
+    __var["proxy-link"] = []
+    for item in __src["proxy"]["link"]:
+        __var["proxy-link"].append(item["tag"])
 
 
 def config(out) -> None:
@@ -157,10 +161,10 @@ def config(out) -> None:
     rule(__src, res)
 
     res["proxy-providers"] = {}
-    for idx, item in enumerate(__src["proxy"]["link"]):
-        res["proxy-providers"]["Proxy" + str(idx)] = {
+    for item in __src["proxy"]["link"]:
+        res["proxy-providers"][item["tag"]] = {
             "type": "http",
-            "url": item,
+            "url": item["uri"],
             "interval": 86400,
         }
 

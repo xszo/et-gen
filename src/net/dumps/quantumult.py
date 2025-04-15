@@ -85,12 +85,11 @@ def profile(out, loc: dict) -> None:
 
     res.append("\n[dns]")
     if "dns" in __src["misc"]:
-        for item in __src["misc"]["dns"]:
-            res.append("server = " + item)
+        res.extend(["server = " + item for item in __src["misc"]["dns"]])
     if "doh" in __src["misc"]:
-        res.append("doh-server = " + __src["misc"]["doh"][0])
+        res.append("doh-server = " + ", ".join(__src["misc"]["doh"]))
     if "dot" in __src["misc"]:
-        res.append("dot-server = " + __src["misc"]["dot"][0])
+        res.append("dot-server = " + ", ".join(__src["misc"]["dot"]))
 
     res.append("\n[mitm]")
 
@@ -104,7 +103,10 @@ def profile(out, loc: dict) -> None:
     res.append("\n[server_remote]")
     res.extend(
         [
-            item + ", tag=Proxy, update-interval=86400, opt-parser=true, enabled=true"
+            item["uri"]
+            + ", tag="
+            + item["tag"]
+            + ", update-interval=86400, opt-parser=true, enabled=true"
             for item in __src["proxy"]["link"]
         ]
     )

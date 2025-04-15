@@ -6,5 +6,5 @@ list:
 # data for proxy section
 proxy:
   - ""
-  # flag path
-  # - l https://cdn.jsdelivr.net/gh/xszo/etc/network/proxy.txt
+  # flag var
+  # - l proxy https://cdn.jsdelivr.net/gh/xszo/etc/network/proxy.txt

@@ -1,6 +1,6 @@
 res = {}
 __src = {}
-__var = {"map-node": {"direct": "DIRECT", "reject": "REJECT"}}
+__var = {"map-node": {"direct": "DIRECT", "reject": "REJECT"}, "proxy-link": []}
 
 
 def let(lsrc: dict) -> None:
@@ -9,6 +9,8 @@ def let(lsrc: dict) -> None:
     for item in __src["node"]:
         if "id" in item:
             __var["map-node"][item["id"]] = item["name"]
+    for item in __src["proxy"]["link"]:
+        __var["proxy-link"].append(item["tag"])
 
 
 def profile(out, loc: dict) -> None:
@@ -47,19 +49,14 @@ def base(out, loc: dict) -> None:
     ]
 
     if "dns" in __src["misc"]:
-        line = "dns-server = " + __src["misc"]["dns"][0]
-        for item in __src["misc"]["dns"][1:]:
-            line += ", " + item
-        res.append(line)
+        res.append("dns-server = " + ", ".join(__src["misc"]["dns"]))
     line = "encrypted-dns-server = "
     if "doh" in __src["misc"]:
-        for item in __src["misc"]["doh"]:
-            line += item + ", "
+        line += ", ".join(__src["misc"]["doh"])
     if "dot" in __src["misc"]:
-        for item in __src["misc"]["dot"]:
-            line += item + ", "
+        line += ", ".join(__src["misc"]["dot"])
     if len(line) > 24:
-        res.append(line[:-2])
+        res.append(line)
 
     res.append("\n[Proxy Group]")
 
@@ -79,7 +76,7 @@ def base(out, loc: dict) -> None:
                     line += ", " + val
         if "regx" in item:
             line += (
-                ', include-all-proxies=true, include-other-group=Proxy, policy-regex-filter="'
+                ', include-other-group=Proxy, policy-regex-filter="'
                 + item["regx"]
                 + '"'
             )
@@ -95,29 +92,46 @@ def base(out, loc: dict) -> None:
             for item in __src["filter"]["dn"]["surge"]
             if item[0] in set([1, 2])
         ]
-        + [
+    )
+
+    res.extend(
+        [
             "RULE-SET, " + item[2] + ", " + __var["map-node"][item[3]]
             for item in __src["filter"]["ip"]["surge"]
             if item[0] == 1
         ]
     )
+
     res.append("FINAL, " + __var["map-node"][__src["filter"]["main"]] + ", dns-failed")
 
     out.writelines([x + "\n" for x in res])
 
 
 def proxy(out) -> None:
-    out.writelines(
+    global res
+    res = [
+        "[General]\n",
+        "\n",
+        "[Rule]\n",
+        "FINAL, DIRECT\n",
+        "\n",
+        "[Proxy]\n",
+        "\n",
+        "[Proxy Group]\n",
+        'Proxy = select, include-all-proxies=true, include-other-group="'
+        + ", ".join(__var["proxy-link"])
+        + '"\n',
+    ]
+    res.extend(
         [
-            "[General]\n",
-            "\n",
-            "[Proxy]\n",
-            "DIRECT = direct\n",
-            "\n",
-            "[Proxy Group]\n",
-            'Proxy = select, include-other-group=""\n',
-            "\n",
-            "[Rule]\n",
-            "FINAL, DIRECT\n",
+            item["tag"]
+            + " = select, external-policy-name-prefix="
+            + item["tag"]
+            + '__, policy-path="'
+            + item["uri"]
+            + '"\n'
+            for item in __src["proxy"]["link"]
         ]
     )
+
+    out.writelines(res)
