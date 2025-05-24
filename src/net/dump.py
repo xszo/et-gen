@@ -1,6 +1,6 @@
 from ..lib import net
 from . import ren
-from .dumps import clash_conv, conv, quantumult, shadowrocket, surge
+from .dumps import clash, clash_conv, conv, quantumult, shadowrocket, surge
 
 # Var
 __src = {}
@@ -57,6 +57,13 @@ def __quantumult(alia: str) -> None:
 
 
 def __clash(alia: str) -> None:
+    clash.let(__src)
+
+    with open(
+        ren.PATH_OUT_CLASH / ("profile" + alia + ".yml"), "tw", encoding="utf-8"
+    ) as out:
+        clash.config(out)
+
     clash_conv.let(__src)
 
     with open(

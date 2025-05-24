@@ -116,6 +116,7 @@ def proxy(out) -> None:
         "FINAL, DIRECT\n",
         "\n",
         "[Proxy]\n",
+        "DIRECT = direct\n",
         "\n",
         "[Proxy Group]\n",
         'Proxy = select, include-all-proxies=true, include-other-group="'
