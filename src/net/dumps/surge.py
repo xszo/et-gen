@@ -43,12 +43,15 @@ def base(out, loc: dict) -> None:
         #
         "[General]",
         "loglevel = warning",
+        "udp-priority = true",
+        "wifi-assist = true",
         # "internet-test-url = " + __src["misc"]["test"],
         "proxy-test-url = " + __src["misc"]["test"],
         "proxy-test-udp = " + __src["misc"]["t-dns"],
     ]
 
     if "dns" in __src["misc"]:
+        res.append("hijack-dns = *:53")
         res.append("dns-server = " + ", ".join(__src["misc"]["dns"]))
     line = "encrypted-dns-server = "
     if "doh" in __src["misc"]:
