@@ -151,7 +151,7 @@ def __load_node() -> None:
 # get filter content from file and optimize
 def __load_filter() -> None:
     ref = var.get("filter-ref")
-    tmp_dn = {"surge": [], "clash": []}
+    tmp_dn = {"ds": [], "surge": [], "clash": []}
     tmp_ip = {"surge": [], "clash": []}
 
     for item in res["filter"]:
@@ -161,6 +161,14 @@ def __load_filter() -> None:
         elif item["type"] == "use":
             loc = item["use"]
             if loc in ref["list"]["dn"]:
+                tmp_dn["ds"].append(
+                    (
+                        1,
+                        loc,
+                        ren.URI + ref["dn"]["ds-" + loc],
+                        item["node"],
+                    )
+                )
                 tmp_dn["surge"].append(
                     (
                         1,

@@ -26,6 +26,7 @@ def __ref(als: dict) -> None:
     # domain list uri
     for k in ref["list"]["dn"]:
         ref["dn"]["surge-" + k] = "surge/filter-dn+" + k + ".txt"
+        ref["dn"]["ds-" + k] = "surge/filter-ds+" + k + ".txt"
         ref["dn"]["clash-" + k] = "clash/filter-dn+" + k + ".txt"
     # ip list uri
     for k in ref["list"]["ip"]:
@@ -37,6 +38,13 @@ def __ref(als: dict) -> None:
 
 def __dn() -> None:
     for key, val in __src["domain"].items():
+        # dump domain set
+        with open(
+            ren.PATH_OUT_SURGE / ("filter-ds+" + key + ".txt"),
+            "tw",
+            encoding="utf-8",
+        ) as file:
+            file.writelines([x + "\n" for x in val])
         # dump clash
         with open(
             ren.PATH_OUT_CLASH / ("filter-dn+" + key + ".txt"),

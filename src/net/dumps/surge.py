@@ -17,16 +17,17 @@ def profile(out, loc: dict) -> None:
     out.writelines(
         [
             "[General]\n",
-            "#!include " + loc["base"] + "\n",
-            "\n",
+            "#!include " + loc["base"],
+            "\n\n",
             "[Proxy]\n",
             "#!include proxy.conf\n",
             "\n",
             "[Proxy Group]\n",
-            "#!include " + loc["base"] + ", proxy.conf\n",
-            "\n",
+            "#!include " + loc["base"],
+            "\n\n",
             "[Rule]\n",
-            "#!include " + loc["base"] + "\n",
+            "#!include " + loc["base"],
+            "\n",
         ]
     )
 
@@ -43,7 +44,6 @@ def base(out, loc: dict) -> None:
         #
         "[General]",
         "loglevel = warning",
-        "udp-priority = true",
         "wifi-assist = true",
         # "internet-test-url = " + __src["misc"]["test"],
         "proxy-test-url = " + __src["misc"]["test"],
@@ -79,9 +79,7 @@ def base(out, loc: dict) -> None:
                     line += ", " + val
         if "regx" in item:
             line += (
-                ', include-other-group=Proxy, policy-regex-filter="'
-                + item["regx"]
-                + '"'
+                ', include-all-proxies=true, policy-regex-filter="' + item["regx"] + '"'
             )
         return line
 
@@ -91,8 +89,8 @@ def base(out, loc: dict) -> None:
 
     res.extend(
         [
-            "RULE-SET, " + item[2] + ", " + __var["map-node"][item[3]] + ", no-resolve"
-            for item in __src["filter"]["dn"]["surge"]
+            "DOMAIN-SET, " + item[2] + ", " + __var["map-node"][item[3]]
+            for item in __src["filter"]["dn"]["ds"]
             if item[0] in set([1, 2])
         ]
     )
